@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Web App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-sticky-note"></i>
+                    <h1>Todo Web App</h1>
+                    <p>Organize your tasks efficiently</p>
+                </div>
+            </div>
+            
+            <div class="add-task-section">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="Enter your task..." maxlength="100">
+                    <input type="datetime-local" id="taskDateTime">
+                    <button id="addTaskBtn" class="add-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Task
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i>
+                    All
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    <i class="fas fa-clock"></i>
+                    Pending
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <i class="fas fa-check-circle"></i>
+                    Completed
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="pendingTasks">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+            
+            <div class="tasks-container">
+                <div id="tasksList" class="tasks-list">
+                    <!-- Tasks will be added here dynamically -->
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button id="clearCompletedBtn" class="action-btn">
+                    <i class="fas fa-trash"></i>
+                    Clear Completed
+                </button>
+                <button id="clearAllBtn" class="action-btn">
+                    <i class="fas fa-trash-alt"></i>
+                    Clear All
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Task Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editTaskInput">Task:</label>
+                    <input type="text" id="editTaskInput" placeholder="Enter task text...">
+                </div>
+                <div class="form-group">
+                    <label for="editTaskDateTime">Date & Time:</label>
+                    <input type="datetime-local" id="editTaskDateTime">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveEditBtn" class="save-btn">
+                    <i class="fas fa-save"></i>
+                    Save Changes
+                </button>
+                <button id="cancelEditBtn" class="cancel-btn">
+                    <i class="fas fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
